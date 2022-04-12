@@ -1,25 +1,28 @@
-import logo from './logo.svg';
+import { useState } from 'react';
 import './App.css';
+import MainMint from './MainMint';
+import NavBar from './NavBar';
+import gif from './assets/img/preview.gif'
+import banner from './assets/img/banner3.jpg'
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+  const [accounts, setAccounts] = useState([]);
+
+  return <div className='container'>
+    <div className='header'>
+      <NavBar accounts={accounts} setAccounts={setAccounts} />
     </div>
-  );
+    <div className='main'>
+    <img src={gif} alt="gif" class="gif"/>
+    </div>
+    <div className='sidebar'>
+      <MainMint accounts={accounts} setAccounts={setAccounts} />
+    </div>
+    <div className='footer'>
+      <img src={banner} alt="banner" class="logo"/>
+    </div>
+    
+  </div>;
 }
 
 export default App;
